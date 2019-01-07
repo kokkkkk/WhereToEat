@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import HomeScreen from './Screens/home';
+
 import {createDrawerNavigator, createAppContainer} from 'react-navigation';
 
 export default class App extends React.Component {
@@ -8,18 +10,10 @@ export default class App extends React.Component {
     return <AppContainer/>;
   }
 }
-class Home extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Where To Eat</Text>
-      </View>
-    );
-  }
-}
+
 
 const AppDrawerNavigator = createDrawerNavigator({
-  Home: Home
+  Home:{screen:HomeScreen} 
 },
 );
 
