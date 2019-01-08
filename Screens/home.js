@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Text, View } from 'react-native';
+import styles from './CSS';
 
 export default class home extends React.Component {
     render() {
@@ -13,25 +14,3 @@ export default class home extends React.Component {
       );
     }
   }
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-      alignItems: 'center',
-    },
-    Header:{
-      backgroundColor: 'orange',
-      elevation: 10,
-      height:'10%',
-      alignItems: 'flex-start',
-      width: '100%',
-    },
-    Heading:{ 
-      marginTop: '10%',
-      marginRight:'10%',
-      marginLeft:'10%',
-      textAlign: 'center',
-      fontSize: 20,
-    }
-  });
