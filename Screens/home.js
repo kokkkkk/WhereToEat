@@ -5,7 +5,9 @@ export default class home extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text>Where To Eat</Text>
+          <View style={styles.Header}>
+            <Text style={styles.Heading}>Where To Eat</Text>
+          </View>
         </View>
       );
     }
@@ -14,8 +16,21 @@ export default class home extends React.Component {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
       alignItems: 'center',
-      justifyContent: 'center',
     },
+    Header:{
+      backgroundColor: 'orange',
+      elevation: 10,
+      height:'10%',
+      alignItems: 'flex-start',
+      width: '100%',
+    },
+    Heading:{ 
+      marginTop: '10%',
+      marginRight:'10%',
+      marginLeft:'10%',
+      textAlign: 'center',
+      fontSize: 20,
+    }
   });
