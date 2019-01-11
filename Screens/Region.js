@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View } from 'react-native';
-import styles from './CSS';
+import styles from '../CSS';
 
 export default class Region extends React.Component {
     render() {
