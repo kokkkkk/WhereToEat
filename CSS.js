@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
         alignItems: 'center',
       },
       Header:{
@@ -19,5 +18,22 @@ export default StyleSheet.create({
         marginLeft:'10%',
         textAlign: 'center',
         fontSize: 20,
-      }
+      },
+      Body: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 10,
+        height:'90%',
+        width: '100%',
+      },
+      BodySubText: {
+          fontSize: 12,
+          textAlign: 'justify',
+          color: 'yellow'
+      },
+      BodyHeadText: {
+        fontSize: 24,
+        color: 'black',
+        textAlign: 'justify',
+    }
 });
