@@ -22,7 +22,7 @@ export default class AboutUs extends React.Component {
 
     render() {
       return (
-        <ImageBackground source={require('../assets/bgImage.jpg')}  style={{width: '100%', height: '100%'}}>
+        <ImageBackground source={require('../assets/bgImage.jpg')} resizeMode="repeat" style={{width: '100%', height: '100%'}}>
 
         <View style={styles.container}>
 

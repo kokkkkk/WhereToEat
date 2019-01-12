@@ -3,7 +3,10 @@ import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column',
         alignItems: 'center',
+        height:'100%',
+        width: '100%',
       },
       Header:{
         backgroundColor: 'orange',
@@ -35,5 +38,11 @@ export default StyleSheet.create({
         fontSize: 24,
         color: 'black',
         textAlign: 'justify',
+    },
+    Footer:{
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginBottom: 10,
+        width: '80%'
     }
 });
