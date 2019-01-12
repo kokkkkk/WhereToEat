@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, } from 'react-native';
+import { Text, View, Button,Image } from 'react-native';
 import styles from '../CSS';
 
 export default class home extends React.Component {
@@ -7,14 +7,12 @@ export default class home extends React.Component {
    constructor(props){
     super(props);
     this.state= {
-        name: "name",
-        address: "address"
+        name: "",
+        address: ""
     };
    }
 
     DrawResult = ()=>{
-        
-        alert("draw");
         fetch('https://cyclostome-informat.000webhostapp.com/connectDB.php', {
             method: 'POST',
             header:{
@@ -29,7 +27,6 @@ export default class home extends React.Component {
             .then((responseJson)=>{
                 this.setState({name:responseJson.name});
                 this.setState({address:responseJson.address});
-                alert(responseJson.name);
             })
     }
 
@@ -39,12 +36,21 @@ export default class home extends React.Component {
           <View style={styles.Header}>
             <Text style={styles.Heading}>Where To Eat</Text>
           </View>
-          <Text>Home</Text>
-          <Text>{this.state.name}</Text>
-          <Text>{this.state.address}</Text>
-          <Button title="Draw" onPress={this.DrawResult}
-          color="blue">
-          </Button>
+
+          <Text style={styles.BodyHeadText}>Please Press the button</Text>
+
+          <View style={{flex: 1,justifyContent: 'center',marginTop: '30%',}}>
+            <Text style={styles.BodyHeadText}>{this.state.name}</Text>
+            <Text style={styles.BodySubText}>{this.state.address}</Text>
+            <Image style={{width: 200, height: 200}} source={{uri:"https://cyclostome-informat.000webhostapp.com/photos/"+this.state.name+".jpg"}}></Image>
+          </View>
+
+          <View style={styles.Footer}>
+            <Button title="Draw" onPress={this.DrawResult}
+                color="blue">
+             </Button>
+        </View>
+
         </View>
       );
     }
