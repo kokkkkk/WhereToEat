@@ -21,7 +21,7 @@ export default class Region extends React.Component {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify({
-                 key: "test",
+                 key: this.state.region,
             })
         })
         .then((response)=>response.json())

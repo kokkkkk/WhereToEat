@@ -20,7 +20,7 @@ export default class home extends React.Component {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify({
-                 key: "test",
+                 key: "All",
             })
         })
         .then((response)=>response.json())

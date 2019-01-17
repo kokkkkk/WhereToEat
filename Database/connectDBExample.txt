@@ -4,6 +4,11 @@ $username = "Your Username";
 $password = "Your password";
 $database = "database name";
 $id;
+
+$json= file_get_contents('php://input');
+$content= json_decode($json, true);
+$key =$content['key'];
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -15,31 +20,28 @@ $query = "SELECT * FROM  `Where To Eat` ORDER BY id";
 	
         $conn->set_charset("utf8");
 		$result = $conn->query($query) ;
-		
+        $gofind = false;
+
 		if ($result === false) {
-			echo "Error";
+			echo json_encode("Error");
 		}
 		else {
-            $row_cnt = $result->num_rows;
-            
-            $id=rand(1,$row_cnt);
-            
-            $find="SELECT * FROM  `Where To Eat` WHERE id =  '".$id."'";
-            $gofind=$conn->query($find);
-            if($gofind==false){
-                echo "error";
+            if($key=='All'){
+                $find="SELECT * FROM  `Where To Eat` ORDER BY RAND ( ) LIMIT 1 ";
+            }else{
+                $find="SELECT * FROM  `Where To Eat` WHERE area = '".$key."' ORDER BY RAND ( ) LIMIT 1";
             }
-            else{
+
+            $gofind=$conn->query($find);
+            
                 $gofind->data_seek(0);
                 while($record=$gofind->fetch_assoc()){
                     //echo$record['name']."<br>".$record['address']."<br>";
                     $name=$record['name'];
                     $address=$record['address'];
-                    echo json_encode( array('name'=>$name, 'address'=>$address));
                 }
-            }
+                print(json_encode( array('name'=>$name, 'address'=>$address)));
            
 		}
-
-
+ exit();
 ?>
